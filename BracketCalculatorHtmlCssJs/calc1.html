@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <!-- Заглавие на урока -->
+    <h1 style="font-size: 60px;">&ndash; Урок за скобите в математиката &ndash;</h1>
+    <!-- Основен текст на урока -->
+    <div class="task-text">
+        <!-- Обяснение за скобите в математиката -->
+        <p>
+            Скобите в математиката са инструмент, който ни позволява да групираме числа и променливи в изрази. Те се
+            използват за ясно определяне на реда на действията при изчисления. Също така, скобите могат да променят
+            резултата от задачата, а
+            правилният ред на действията е важен, за да получим точни отговори.
+        </p>
+        <br>
+        <hr><br>
+        <p>
+            Правила за използване на скоби.
+            Ред на операциите: <br> Когато имате израз с множество операции, първо се изпълняват операциите в скобите.
+            Вложени скоби: Ако има вложени скоби, първо се изчисляват най-вътрешните скоби.
+            Комбиниране на скоби и оператори: Използвайте скобите, за да промените реда на операциите. <br><br>Пример:
+            Даден е изразът:<em> 2 + 3 * 4</em>, умножението ще се извърши преди събирането. Но ако използвате скоби:
+            <em> (2 + 3) * 4</em>, първо ще
+            се изчисли сумата, а после произведението. <br><br>
+        <p>Пример: Даден е изразът: <em>(5 + 3) * 2</em>
+            Първо изчисляваме събирането в скобите: <em> 5 + 3 = 8</em>
+            След това умножаваме резултата с 2 и се получава <em>8 * 2 = 16</em>
+        </p>
+        <br>
+        <hr><br>
+        <!-- Примери и задачи -->
+        <p>С помощта на калкулатора решете следните задачи:</p>
+        <p id="zad1"><b>Задача 1.</b> <em>2 + (3 * 4) = ?</em></p>
+        <button class="btn" onclick="toggleText(this, 'myText1')">Виж решението</button>
+        <div class="solutionText" id="myText1" style="display: none;"> Изчисляваме израза в скобите:
+            <br> Умножаваме числата в скобите: <em>3 * 4 = 12</em>.
+            <br> Добавяме резултата от скобите към числото извън скобите:
+            <em> 2 + 12 = 14</em>.
+            Така получаваме, че <em>2 + (3 * 4) = 14</em>.
+        </div>
+        <br>
+        <p id="zad2"><b>Задача 2.</b> <em>(2 + 3) * 4 = ?</em></p>
+        <button class="btn" onclick="toggleText(this, 'myText2')">Виж решението</button>
+        <div class="solutionText" id="myText2" style="display: none;"> Изчисляваме израза в скобите:
+            <br> Събираме числата в скобите: <em>2 + 3 = 5</em>.
+            <br> Умножаваме резултата от скобите по числото извън скобите:
+            <em>5 * 4 = 20</em>.
+            Така получаваме, че <em>(2 + 3) * 4 = 20</em>.
+        </div>
+        <br>
+        <p id="zad3"><b>Задача 3.</b> <em>((1 + 2) * (3 + 4)) = ?</em></p>
+        <button class="btn" onclick="toggleText(this, 'myText3')">Виж решението</button>
+        <div class="solutionText" id="myText3" style="display: none;"> Изчисляваме изразите в скобите:
+            <br> Събираме числата в първата скоба: <em>1 + 2 = 3</em>.
+            <br> Събираме числата във втората скоба: <em> 3 + 4 = 7</em>.
+            <br> Умножаваме резултатите от скобите:
+            <em> 3 * 7 = 21</em>.
+            <br> Така получаваме, че <em>((1 + 2) * (3 + 4)) = 21</em>
+        </div>
+        <br>
+        <p id="zad4"><b>Задача 4.</b> <em>((2 + 3) * (4 + 5)) + (6 - 1) = ?</em></p>
+        <button class="btn" onclick="toggleText(this, 'myText4')">Виж решението</button>
+        <div class="solutionText" id="myText4" style="display: none;">
+            Изчисляване на изразите в скобите:
+            <br> Събираме числата в първата скоба: <em> 2 + 3 = 5</em>.
+            <br> Събираме числата във втората скоба: <em> 4 + 5 = 9</em>.
+            <br> Умножаване на резултатите от скобите:
+            <em> 5 * 9 = 45</em>.
+            <br> Добавяне на резултата от втората скоба към числото извън скобите:
+            <br> <em> 45 + (6 - 1) = 45 + 5 = 50</em>.
+            <br> Така получаваме, че <em> ((2 + 3) * (4 + 5)) + (6 - 1) = 50</em>
+        </div>
+    </div>
+    <!-- Калкулатор -->
+    <div class="container">
+        <form name="calc" action="" class="calculator">
+            <!-- Текстово поле за въвеждане на израз -->
+            <div class="display">
+                <input name="text" id="myInput" readonly>
+            </div>
+            <!-- Бутони за цифри и оператори -->
+            <div class="buttonClick">
+                <div class="oneClass">
+                    <span class="clear" id="num1" onclick="btnClear()"><i>C</i></span>
+                    <span id="num1" onclick="btnSeven()"><i>7</i></span>
+                    <span id="num1" onclick="btnEight()"><i>8</i></span>
+                    <span id="num1" onclick="btnNine()"><i>9</i></span>
+                </div>
+                <div class="oneClass">
+                    <span id="num1" onclick="btnPlus()"><i>+</i></span>
+                    <span id="num1" onclick="btnFour()"><i>4</i></span>
+                    <span id="num1" onclick="btnFive()"><i>5</i></span>
+                    <span id="num1" onclick="btnSix()"><i>6</i></span>
+                </div>
+                <div class="oneClass">
+                    <span id="num1" onclick="btnMinus()"><i>-</i></span>
+                    <span id="num1" onclick="btnOne()"><i>1</i></span>
+                    <span id="num1" onclick="btnTwo()"><i>2</i></span>
+                    <span id="num1" onclick="btnThree()"><i>3</i></span>
+                </div>
+                <div class="oneClass">
+                    <span id="num1" onclick="btnDivide()"><i>/</i></span>
+                    <span id="num1" onclick="btnMultiply()"><i>*</i></span>
+                    <span id="num1" onclick="btnZero()"><i>0</i></span>
+                    <span id="num1" onclick="btnDot()"><i>.</i></span>
+                </div>
+                <div class="oneClass">
+                    <span id="num1" onclick="btnOpen()"><i>(</i></span>
+                    <span id="num1" onclick="btnClose()"><i>)</i></span>
+                    <span class="equal" id="num1" onclick="result()"><i>=</i></span>
+                </div>
+            </div>
+        </form>
+    </div> <br>
+    <script src="main.js"></script>
+</body>
+
+</html>
